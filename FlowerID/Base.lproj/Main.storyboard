@@ -3,12 +3,12 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--FlowerID-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FlowerID" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RnI-jk-0oN">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="lightGreenFlowerID"/>
                         <constraints>
                             <constraint firstItem="RnI-jk-0oN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9Mh-zQ-Sw3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RnI-jk-0oN" secondAttribute="trailing" id="cT3-hx-H9x"/>
@@ -29,7 +29,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="RnI-jk-0oN" secondAttribute="leading" id="kUu-Gu-dgH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="RSB-0f-8kE">
+                    <navigationItem key="navigationItem" title="FlowerID" id="RSB-0f-8kE">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="j9W-at-2Y1">
                             <connections>
                                 <action selector="cameraButtonPressed:" destination="BYZ-38-t0r" id="o3x-Mr-Vbb"/>
@@ -49,9 +49,17 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f4y-fk-mJZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZiN-Mo-KHn">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ZiN-Mo-KHn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="lightGreenFlowerID"/>
+                        <color key="tintColor" name="greenFlowerID"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="greenFlowerID"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="greenFlowerID"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -64,8 +72,11 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="greenFlowerID">
+            <color red="0.3449999988079071" green="0.54900002479553223" blue="0.18400000035762787" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightGreenFlowerID">
+            <color red="0.93300002813339233" green="1" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
