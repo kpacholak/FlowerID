@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import CoreML
+import Vision
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-   let imagePicker = UIImagePickerController()
+    let imagePicker = UIImagePickerController()
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -18,33 +20,66 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         imagePicker.delegate = self
  
-        
     }
 
     // func to pick the image from camera
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        let userPickedImage = info[UIImagePickerController.InfoKey.editedImage]
-        imageView.image = userPickedImage as? UIImage
+        if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+         
+        // to use image with detect() function we need to convert it to CIImage
+            guard let convertedCiImage = CIImage(image: userPickedImage) else { fatalError("Unable to convert to CIImage") }
+            
+            detect(image: convertedCiImage)
+            
+            imageView.image = userPickedImage
+        }
+        
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
+    
+    func detect(image: CIImage) {
+        // VNCoreModel comes from Vision library. We're loading model
+        guard let model = try? VNCoreMLModel(for: FlowerClassifier().model) else { fatalError("Unable to import model") }
+            
+        
+        let request = VNCoreMLRequest(model: model) { (request, error) in
+            let classification = request.results?.first as? VNClassificationObservation
+            // result from classifictaion goes to navigation title (capitalized)
+            self.navigationItem.title = classification?.identifier.capitalized
+        }
+        
+        let handler = VNImageRequestHandler(ciImage: image)
+        do {
+            try handler.perform([request])
+        } catch {
+            print(error)
+        }
+        
+    }
+    
+    
+    // MARK: - CameraButtonPressed with alerts
+    
     @IBAction func cameraButtonPressed(_ sender: UIBarButtonItem) {
  
-        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Choose image to identify", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
             self.openCamera()
         }))
 
-        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
-            self.openGallery()
+        alert.addAction(UIAlertAction(title: "Photo library", style: .default, handler: { _ in
+            self.openLibrary()
         }))
 
         alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
 
         self.present(alert, animated: true, completion: nil)
     }
-
+    
+// MARK: - Choose camera or library
+    
     func openCamera()
     {
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera))
@@ -61,7 +96,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 
-    func openGallery()
+    func openLibrary()
     {
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         imagePicker.allowsEditing = true
