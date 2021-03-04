@@ -13,6 +13,7 @@
 		A6F03E1125F1021E00633D97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6F03E0F25F1021E00633D97 /* Main.storyboard */; };
 		A6F03E1325F1021E00633D97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6F03E1225F1021E00633D97 /* Assets.xcassets */; };
 		A6F03E1625F1021E00633D97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6F03E1425F1021E00633D97 /* LaunchScreen.storyboard */; };
+		A6F03E2025F104B000633D97 /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A6F03E1F25F104B000633D97 /* FlowerClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A6F03E1225F1021E00633D97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6F03E1525F1021E00633D97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6F03E1725F1021E00633D97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6F03E1F25F104B000633D97 /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				A6F03E1225F1021E00633D97 /* Assets.xcassets */,
 				A6F03E1425F1021E00633D97 /* LaunchScreen.storyboard */,
 				A6F03E1725F1021E00633D97 /* Info.plist */,
+				A6F03E1F25F104B000633D97 /* FlowerClassifier.mlmodel */,
 			);
 			path = FlowerID;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6F03E2025F104B000633D97 /* FlowerClassifier.mlmodel in Sources */,
 				A6F03E0E25F1021E00633D97 /* ViewController.swift in Sources */,
 				A6F03E0A25F1021E00633D97 /* AppDelegate.swift in Sources */,
 				A6F03E0C25F1021E00633D97 /* SceneDelegate.swift in Sources */,
