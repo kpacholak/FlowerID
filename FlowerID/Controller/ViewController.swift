@@ -10,25 +10,27 @@ import CoreML
 import Vision
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     let imagePicker = UIImagePickerController()
     let flowerManager = FlowerManager()
+  
+    @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        flowerManager.delegate = self
         imagePicker.delegate = self
- 
+        
     }
-
+    
     // func to pick the image from camera
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-         
-        // to use image with detect() function we need to convert it to CIImage
+            
+            // to use image with detect() function we need to convert it to CIImage
             guard let convertedCiImage = CIImage(image: userPickedImage) else { fatalError("Unable to convert to CIImage") }
             
             detect(image: convertedCiImage)
@@ -43,7 +45,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func detect(image: CIImage) {
         // VNCoreModel comes from Vision library. We're loading model
         guard let model = try? VNCoreMLModel(for: FlowerClassifier().model) else { fatalError("Unable to import model") }
-            
+        
         
         let request = VNCoreMLRequest(model: model) { (request, error) in
             guard let classification = request.results?.first as? VNClassificationObservation else { fatalError("Unable to classify image") }
@@ -67,22 +69,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: - CameraButtonPressed with alerts
     
     @IBAction func cameraButtonPressed(_ sender: UIBarButtonItem) {
- 
+        
         let alert = UIAlertController(title: "Choose image to identify", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
             self.openCamera()
         }))
-
+        
         alert.addAction(UIAlertAction(title: "Photo library", style: .default, handler: { _ in
             self.openLibrary()
         }))
-
+        
         alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
-
+        
         self.present(alert, animated: true, completion: nil)
     }
     
-// MARK: - Choose camera or library
+    // MARK: - Choose camera or library
     
     func openCamera()
     {
@@ -99,7 +101,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.present(alert, animated: true, completion: nil)
         }
     }
-
+    
     func openLibrary()
     {
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
@@ -109,3 +111,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
 }
 
+extension ViewController: FlowerManagerDelegate {
+    func didUpdateFlower(extract: String, imageSrcURL: String) {
+        DispatchQueue.main.async {
+            print("did Update Flower")
+            self.textView.text = extract
+            //            self.imageView.sd_setImage(with: URL(string: imageSrcURL))
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+}

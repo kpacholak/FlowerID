@@ -17,15 +17,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RnI-jk-0oN">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="341"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RnI-jk-0oN" secondAttribute="height" multiplier="414:341" id="HhS-0H-hsR"/>
+                                </constraints>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.94999999999999996" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soE-Se-jkh">
+                                <rect key="frame" x="20" y="489" width="374" height="373"/>
+                                <color key="backgroundColor" name="lightGreenFlowerID"/>
+                                <color key="textColor" name="greenFlowerID"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="lightGreenFlowerID"/>
                         <constraints>
                             <constraint firstItem="RnI-jk-0oN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9Mh-zQ-Sw3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="soE-Se-jkh" secondAttribute="trailing" constant="20" id="FsJ-d0-5rk"/>
+                            <constraint firstItem="soE-Se-jkh" firstAttribute="top" secondItem="RnI-jk-0oN" secondAttribute="bottom" constant="8" symbolic="YES" id="MQb-WR-Qey"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RnI-jk-0oN" secondAttribute="trailing" id="cT3-hx-H9x"/>
-                            <constraint firstItem="RnI-jk-0oN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="kPu-bl-okd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="soE-Se-jkh" secondAttribute="bottom" id="f8C-5Z-fFW"/>
+                            <constraint firstItem="soE-Se-jkh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ieF-fY-oM0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="RnI-jk-0oN" secondAttribute="leading" id="kUu-Gu-dgH"/>
                         </constraints>
                     </view>
@@ -38,6 +51,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="RnI-jk-0oN" id="DaM-xH-0sB"/>
+                        <outlet property="textView" destination="soE-Se-jkh" id="ffo-NI-WCF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
