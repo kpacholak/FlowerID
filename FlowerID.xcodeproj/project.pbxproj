@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A63C59EA25F28E3F006CAA16 /* FlowerIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63C59E925F28E3F006CAA16 /* FlowerIDModel.swift */; };
+		A63C59F425F28EAB006CAA16 /* FlowerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63C59F325F28EAB006CAA16 /* FlowerManager.swift */; };
 		A6F03E0A25F1021E00633D97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F03E0925F1021E00633D97 /* AppDelegate.swift */; };
 		A6F03E0C25F1021E00633D97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F03E0B25F1021E00633D97 /* SceneDelegate.swift */; };
 		A6F03E0E25F1021E00633D97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F03E0D25F1021E00633D97 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A63C59E925F28E3F006CAA16 /* FlowerIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerIDModel.swift; sourceTree = "<group>"; };
+		A63C59F325F28EAB006CAA16 /* FlowerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerManager.swift; sourceTree = "<group>"; };
 		A6F03E0625F1021E00633D97 /* FlowerID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowerID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F03E0925F1021E00633D97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6F03E0B25F1021E00633D97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +43,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A63C59E725F28E0B006CAA16 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6F03E0925F1021E00633D97 /* AppDelegate.swift */,
+				A6F03E0B25F1021E00633D97 /* SceneDelegate.swift */,
+				A6F03E1425F1021E00633D97 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A63C59ED25F28E5D006CAA16 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A63C59E925F28E3F006CAA16 /* FlowerIDModel.swift */,
+				A63C59F325F28EAB006CAA16 /* FlowerManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A63C59F025F28E88006CAA16 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A6F03E0F25F1021E00633D97 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A63C59F125F28E8D006CAA16 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A6F03E0D25F1021E00633D97 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A6F03DFD25F1021E00633D97 = {
 			isa = PBXGroup;
 			children = (
@@ -58,12 +97,11 @@
 		A6F03E0825F1021E00633D97 /* FlowerID */ = {
 			isa = PBXGroup;
 			children = (
-				A6F03E0925F1021E00633D97 /* AppDelegate.swift */,
-				A6F03E0B25F1021E00633D97 /* SceneDelegate.swift */,
-				A6F03E0D25F1021E00633D97 /* ViewController.swift */,
-				A6F03E0F25F1021E00633D97 /* Main.storyboard */,
+				A63C59ED25F28E5D006CAA16 /* Model */,
+				A63C59F125F28E8D006CAA16 /* Controller */,
+				A63C59F025F28E88006CAA16 /* View */,
+				A63C59E725F28E0B006CAA16 /* Supporting Files */,
 				A6F03E1225F1021E00633D97 /* Assets.xcassets */,
-				A6F03E1425F1021E00633D97 /* LaunchScreen.storyboard */,
 				A6F03E1725F1021E00633D97 /* Info.plist */,
 				A6F03E1F25F104B000633D97 /* FlowerClassifier.mlmodel */,
 			);
@@ -141,8 +179,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6F03E2025F104B000633D97 /* FlowerClassifier.mlmodel in Sources */,
+				A63C59EA25F28E3F006CAA16 /* FlowerIDModel.swift in Sources */,
 				A6F03E0E25F1021E00633D97 /* ViewController.swift in Sources */,
 				A6F03E0A25F1021E00633D97 /* AppDelegate.swift in Sources */,
+				A63C59F425F28EAB006CAA16 /* FlowerManager.swift in Sources */,
 				A6F03E0C25F1021E00633D97 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

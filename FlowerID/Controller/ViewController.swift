@@ -12,6 +12,7 @@ import Vision
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let imagePicker = UIImagePickerController()
+    let flowerManager = FlowerManager()
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -45,9 +46,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         
         let request = VNCoreMLRequest(model: model) { (request, error) in
-            let classification = request.results?.first as? VNClassificationObservation
+            guard let classification = request.results?.first as? VNClassificationObservation else { fatalError("Unable to classify image") }
             // result from classifictaion goes to navigation title (capitalized)
-            self.navigationItem.title = classification?.identifier.capitalized
+            self.navigationItem.title = classification.identifier.capitalized
+            
+            let flowerStringName = String(self.navigationItem.title ?? "tulip")
+            self.flowerManager.fetchData(flowerName: flowerStringName)
         }
         
         let handler = VNImageRequestHandler(ciImage: image)
