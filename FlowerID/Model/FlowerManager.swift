@@ -5,9 +5,6 @@
 //  Created by Krzysztof Pacholak on 05/03/2021.
 //
 
-
-
-
 import Foundation
 
 protocol FlowerManagerDelegate {
@@ -15,13 +12,14 @@ protocol FlowerManagerDelegate {
     func didFailWithError(error: Error)
 }
 
-
 class FlowerManager {
+    
     var delegate: FlowerManagerDelegate?
     
     func fetchData(flowerName: String) {
         
         let urlString = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts%7Cpageimages&pithumbsize=500&exintro&explaintext&redirects=1&titles=\(flowerName)"
+        
         performRequest(urlString)
     }
     
@@ -49,14 +47,14 @@ class FlowerManager {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(FlowerIDModel.self, from: flowerData).query.pages
-            
-            if let pageKey = decodedData.first?.key { //changing dictionary key captured here
-                let results = decodedData[pageKey]! // Dictionary that the changing key refers to
-                
+            //changing dictionary key captured here
+            if let pageKey = decodedData.first?.key {
+                // dictionary that the changing key refers to
+                let results = decodedData[pageKey]!
                 self.delegate?.didUpdateFlower(extract: results.extract, imageSrcURL: results.thumbnail.source)
             }
         } catch {
-            
+            print(error)
         }
     }
 }

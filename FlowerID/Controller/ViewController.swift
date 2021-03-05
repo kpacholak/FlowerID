@@ -44,8 +44,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func detect(image: CIImage) {
         // VNCoreModel comes from Vision library. We're loading model
-        guard let model = try? VNCoreMLModel(for: FlowerClassifier().model) else { fatalError("Unable to import model") }
-        
+        let config = MLModelConfiguration()
+        guard let coreMLModel = try? FlowerClassifier(configuration: config),
+              let model = try? VNCoreMLModel(for: coreMLModel.model) else { fatalError("Loading CoreML Model Failed") }
         
         let request = VNCoreMLRequest(model: model) { (request, error) in
             guard let classification = request.results?.first as? VNClassificationObservation else { fatalError("Unable to classify image") }
@@ -62,7 +63,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } catch {
             print(error)
         }
-        
     }
     
     
@@ -86,24 +86,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - Choose camera or library
     
-    func openCamera()
-    {
-        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera))
-        {
+    func openCamera() {
+        if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
-        }
-        else
-        {
+            
+        } else {
+            
             let alert  = UIAlertController(title: "Warning", message: "Camera not found", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            
         }
     }
     
-    func openLibrary()
-    {
+    func openLibrary() {
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         imagePicker.allowsEditing = true
         self.present(imagePicker, animated: true, completion: nil)
@@ -111,12 +109,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
 }
 
+// MARK: - FlowerManager Delegate Methods
+
 extension ViewController: FlowerManagerDelegate {
     func didUpdateFlower(extract: String, imageSrcURL: String) {
         DispatchQueue.main.async {
             print("did Update Flower")
             self.textView.text = extract
-            //            self.imageView.sd_setImage(with: URL(string: imageSrcURL))
+            //  self.imageView.sd_setImage(with: URL(string: imageSrcURL))
         }
     }
     
