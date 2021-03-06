@@ -13,8 +13,11 @@ import SDWebImage
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let imagePicker = UIImagePickerController()
+    
     let flowerManager = FlowerManager()
-  
+    var flowerName = "Rose"
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var imageView: UIImageView!
@@ -34,9 +37,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             // to use image with detect() function we need to convert it to CIImage
             guard let convertedCiImage = CIImage(image: userPickedImage) else { fatalError("Unable to convert to CIImage") }
             
-            detect(image: convertedCiImage)
+            
             
             imageView.image = userPickedImage
+            spinner.startAnimating()
+            detect(image: convertedCiImage)
         }
         
         imagePicker.dismiss(animated: true, completion: nil)
@@ -55,10 +60,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             // result from classifictaion goes to navigation title (capitalized)
             self.navigationItem.title = classification.identifier.capitalized
+            print("konwersja nazwy na stringa")
+            //let flowerStringName = String(self.navigationItem.title ?? "rose")
             
-            let flowerStringName = String(self.navigationItem.title ?? "rose")
-            
-            self.flowerManager.fetchData(flowerName: flowerStringName)
+            let flowerStringName = self.navigationItem.title?.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed)
+            self.flowerManager.fetchData(flowerName: flowerStringName ?? "rose")
+            if let flowerSafeName = self.navigationItem.title {
+                self.flowerName = flowerSafeName
+            }
         }
         
         let handler = VNImageRequestHandler(ciImage: image)
@@ -118,14 +127,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
 extension ViewController: FlowerManagerDelegate {
     func didUpdateFlower(extract: String, imageSrcURL: String) {
+        print("uaktualniam text i obraz")
         DispatchQueue.main.async {
-            print("did Update Flower")
+            
+            
             self.textView.text = extract
             self.imageView.sd_setImage(with: URL(string: imageSrcURL))
+            self.spinner.stopAnimating()
         }
+        
     }
     
-    func didFailWithError(error: Error) {
-        print(error)
+    func didFailWithError() {
+        DispatchQueue.main.async {
+            self.textView.text = "Unfortunately, there is no information about \(self.flowerName) in Wikipedia "
+            self.spinner.stopAnimating()
+        }
     }
 }

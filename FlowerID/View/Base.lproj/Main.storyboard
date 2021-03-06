@@ -29,6 +29,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="L9a-zO-haL">
+                                <rect key="frame" x="188.5" y="292" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="lightGreenFlowerID"/>
@@ -36,10 +40,12 @@
                             <constraint firstItem="RnI-jk-0oN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9Mh-zQ-Sw3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="soE-Se-jkh" secondAttribute="trailing" constant="20" id="FsJ-d0-5rk"/>
                             <constraint firstItem="soE-Se-jkh" firstAttribute="top" secondItem="RnI-jk-0oN" secondAttribute="bottom" constant="8" symbolic="YES" id="MQb-WR-Qey"/>
+                            <constraint firstItem="L9a-zO-haL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Rs0-6w-F3t"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RnI-jk-0oN" secondAttribute="trailing" id="cT3-hx-H9x"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="soE-Se-jkh" secondAttribute="bottom" id="f8C-5Z-fFW"/>
                             <constraint firstItem="soE-Se-jkh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ieF-fY-oM0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="RnI-jk-0oN" secondAttribute="leading" id="kUu-Gu-dgH"/>
+                            <constraint firstItem="L9a-zO-haL" firstAttribute="centerY" secondItem="RnI-jk-0oN" secondAttribute="centerY" id="w8C-QY-OKX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FlowerID" id="RSB-0f-8kE">
@@ -51,6 +57,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="RnI-jk-0oN" id="DaM-xH-0sB"/>
+                        <outlet property="spinner" destination="L9a-zO-haL" id="pBE-NC-yVA"/>
                         <outlet property="textView" destination="soE-Se-jkh" id="ffo-NI-WCF"/>
                     </connections>
                 </viewController>
