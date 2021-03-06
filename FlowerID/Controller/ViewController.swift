@@ -25,7 +25,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    // func to pick the image from camera
+    // func picking image from the camera
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
@@ -43,6 +43,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     func detect(image: CIImage) {
+        
         // VNCoreModel comes from Vision library. We're loading model
         let config = MLModelConfiguration()
         guard let coreMLModel = try? FlowerClassifier(configuration: config),
@@ -50,14 +51,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let request = VNCoreMLRequest(model: model) { (request, error) in
             guard let classification = request.results?.first as? VNClassificationObservation else { fatalError("Unable to classify image") }
+            
             // result from classifictaion goes to navigation title (capitalized)
             self.navigationItem.title = classification.identifier.capitalized
             
-            let flowerStringName = String(self.navigationItem.title ?? "tulip")
+            let flowerStringName = String(self.navigationItem.title ?? "rose")
+            
             self.flowerManager.fetchData(flowerName: flowerStringName)
         }
         
         let handler = VNImageRequestHandler(ciImage: image)
+        
         do {
             try handler.perform([request])
         } catch {
@@ -87,6 +91,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: - Choose camera or library
     
     func openCamera() {
+        
         if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
             imagePicker.allowsEditing = true
