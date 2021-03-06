@@ -46,11 +46,14 @@ class FlowerManager {
         
         let decoder = JSONDecoder()
         do {
+            
             let decodedData = try decoder.decode(FlowerIDModel.self, from: flowerData).query.pages
             //changing dictionary key captured here
             if let pageKey = decodedData.first?.key {
+                print(pageKey)
                 // dictionary that the changing key refers to
                 let results = decodedData[pageKey]!
+                print(results)
                 self.delegate?.didUpdateFlower(extract: results.extract, imageSrcURL: results.thumbnail.source)
             }
         } catch {

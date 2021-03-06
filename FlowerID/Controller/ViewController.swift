@@ -102,7 +102,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let alert  = UIAlertController(title: "Warning", message: "Camera not found", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
         }
     }
     
