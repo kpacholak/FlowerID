@@ -8,6 +8,7 @@
 import UIKit
 import CoreML
 import Vision
+import SDWebImage
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -120,7 +121,7 @@ extension ViewController: FlowerManagerDelegate {
         DispatchQueue.main.async {
             print("did Update Flower")
             self.textView.text = extract
-            //  self.imageView.sd_setImage(with: URL(string: imageSrcURL))
+            self.imageView.sd_setImage(with: URL(string: imageSrcURL))
         }
     }
     
