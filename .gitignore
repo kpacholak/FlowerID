@@ -1,0 +1,7 @@
+FlowerClassifier.mlmodel
+FlowerID/FlowerClassifier.mlmodel
+FlowerID/FlowerClassifier
+FlowerClassifier
+*.mlmodel
+.DS_Store
+Pods/
