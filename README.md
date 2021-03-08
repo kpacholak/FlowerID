@@ -2,11 +2,7 @@
 
 #  FlowerID
 
-
-
----
-
-> FlowerID / simple camera-based tool to identify flowers and get some essential information from Wikipedia. Apple MLModel generated from Caffe open source model.
+ FlowerID / simple camera-based tool to identify flowers and get some essential information from Wikipedia. Apple MLModel generated from Caffe open source model.
 
 
 ## Code example
@@ -16,7 +12,6 @@ It is a simple app, so there is no spectacular code example here. But this passi
 ```swift
 func detect(image: CIImage) {
         
-        // VNCoreModel comes from Vision library. We're loading model
         let config = MLModelConfiguration()
         guard let coreMLModel = try? FlowerClassifier(configuration: config),
               let model = try? VNCoreMLModel(for: coreMLModel.model) else { fatalError("Loading CoreML Model Failed") }
@@ -24,7 +19,7 @@ func detect(image: CIImage) {
         let request = VNCoreMLRequest(model: model) { (request, error) in
             guard let classification = request.results?.first as? VNClassificationObservation else { fatalError("Unable to classify image") }
 
-            // result from classifictaion goes to navigation title (capitalized)
+
             self.navigationItem.title = classification.identifier.capitalized
             let flowerStringName = self.navigationItem.title?.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed)
             self.flowerManager.fetchData(flowerName: flowerStringName ?? "rose")
