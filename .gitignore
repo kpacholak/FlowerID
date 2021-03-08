@@ -4,3 +4,4 @@ FlowerID/FlowerClassifier
 FlowerClassifier
 *.mlmodel
 .DS_Store
+Pods/
