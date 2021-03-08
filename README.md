@@ -2,11 +2,19 @@
 
 #  FlowerID
 
+ ![Swift](https://img.shields.io/badge/language-Swift-green)![MIT](https://img.shields.io/github/license/kpacholak/FlowerID)![twitter](https://img.shields.io/twitter/follow/pacholak)
+ 
  FlowerID / simple camera-based tool to identify flowers and get some essential information from Wikipedia. Apple MLModel generated from Caffe open source model.
 
 ## Screenshots
 
-![FlowerIDMockup](Documentation/flowerIDmockup.jpg)
+![FlowerIDMockup](Documentation/flowerIDmockup.jpg) 
+
+## Technologies
+
+* project is written in Swift
+* uses pre-trained machine learning caffe model "caffe-oxford102" from [Jimmie Goode](https://github.com/jimgoo/caffe-oxford102)
+* uses *.mlmodel converted by Apple's [CoreML Tools](https://github.com/apple/coremltools)
 
 ## Code example
 
@@ -42,16 +50,16 @@ func detect(image: CIImage) {
     }
 ```
 
+---
 ![FlowerIDMockup](Documentation/flowerIDmockup09.jpg)
 
 ## Status
-Project is _in progress_
-
-Things to do:
-* save favourites feature
-* share feature
+Project is _in progress_ so there are still some **things to do**:
+* add "save favourites" feature
+* add "share" feature
 * implement tableView
 
+---
 ![FlowerIDMockup](Documentation/flowerIDmockup08.jpg)
 
 
