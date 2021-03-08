@@ -4,6 +4,9 @@
 
  FlowerID / simple camera-based tool to identify flowers and get some essential information from Wikipedia. Apple MLModel generated from Caffe open source model.
 
+## Screenshots
+
+![FlowerIDMockup](Documentation/flowerIDmockup.jpg)
 
 ## Code example
 
@@ -39,7 +42,7 @@ func detect(image: CIImage) {
     }
 ```
 
-
+![FlowerIDMockup](Documentation/flowerIDmockup09.jpg)
 
 ## Status
 Project is _in progress_
@@ -48,6 +51,14 @@ Things to do:
 * save favourites feature
 * share feature
 * implement tableView
+
+![FlowerIDMockup](Documentation/flowerIDmockup08.jpg)
+
+
+## Dependencies
+
+I did not include into repository the CocoaPods dependecies, so you can find them here:
+* [SDWebImage](https://cocoapods.org/pods/SDWebImage) by Olivier Poitrey
 
 ## Inspiration
 Project inspired by Angela's Yu app.
