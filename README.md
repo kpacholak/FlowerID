@@ -2,7 +2,7 @@
 
 #  FlowerID
 
- ![Swift](https://img.shields.io/badge/language-Swift-green)![MIT](https://img.shields.io/github/license/kpacholak/FlowerID)![twitter](https://img.shields.io/twitter/follow/pacholak)
+ ![Swift](https://img.shields.io/badge/language-Swift-green)(https://swift.org/)  ![MIT](https://img.shields.io/github/license/kpacholak/FlowerID)(https://choosealicense.com/licenses/mit/)  ![twitter](https://img.shields.io/twitter/follow/pacholak)(https://twitter.com/pacholak)
  
  FlowerID / simple camera-based tool to identify flowers and get some essential information from Wikipedia. Apple MLModel generated from Caffe open source model.
 
