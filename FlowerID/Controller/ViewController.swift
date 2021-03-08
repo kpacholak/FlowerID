@@ -57,14 +57,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let request = VNCoreMLRequest(model: model) { (request, error) in
             guard let classification = request.results?.first as? VNClassificationObservation else { fatalError("Unable to classify image") }
-            
+
             // result from classifictaion goes to navigation title (capitalized)
             self.navigationItem.title = classification.identifier.capitalized
-            print("konwersja nazwy na stringa")
-            //let flowerStringName = String(self.navigationItem.title ?? "rose")
-            
             let flowerStringName = self.navigationItem.title?.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed)
             self.flowerManager.fetchData(flowerName: flowerStringName ?? "rose")
+            
             if let flowerSafeName = self.navigationItem.title {
                 self.flowerName = flowerSafeName
             }

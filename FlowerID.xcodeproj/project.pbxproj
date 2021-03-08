@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		492D857B792648FEEF98C0E0 /* Pods_FlowerID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B8443FF12B456704920087 /* Pods_FlowerID.framework */; };
+		A6262F8125F654AD009D1C2A /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = A6262F8025F654AD009D1C2A /* LICENSE.txt */; };
 		A63C59EA25F28E3F006CAA16 /* FlowerIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63C59E925F28E3F006CAA16 /* FlowerIDModel.swift */; };
 		A63C59F425F28EAB006CAA16 /* FlowerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63C59F325F28EAB006CAA16 /* FlowerManager.swift */; };
 		A64CB60C25F389B1007732E5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A619E27B25F3866700AF6E40 /* README.md */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		A619E27B25F3866700AF6E40 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
+		A6262F8025F654AD009D1C2A /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		A63C59E925F28E3F006CAA16 /* FlowerIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerIDModel.swift; sourceTree = "<group>"; };
 		A63C59F325F28EAB006CAA16 /* FlowerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerManager.swift; sourceTree = "<group>"; };
 		A6F03E0625F1021E00633D97 /* FlowerID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowerID.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				A619E27B25F3866700AF6E40 /* README.md */,
+				A6262F8025F654AD009D1C2A /* LICENSE.txt */,
 				A6F03E0825F1021E00633D97 /* FlowerID */,
 				A6F03E0725F1021E00633D97 /* Products */,
 				97233177B72FA2415E408D1A /* Pods */,
@@ -197,6 +200,7 @@
 				A6F03E1625F1021E00633D97 /* LaunchScreen.storyboard in Resources */,
 				A6F03E1325F1021E00633D97 /* Assets.xcassets in Resources */,
 				A64CB60C25F389B1007732E5 /* README.md in Resources */,
+				A6262F8125F654AD009D1C2A /* LICENSE.txt in Resources */,
 				A6F03E1125F1021E00633D97 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
