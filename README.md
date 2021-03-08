@@ -10,11 +10,16 @@
 
 ![FlowerIDMockup](Documentation/flowerIDmockup.jpg) 
 
+
 ## Technologies
 
 * project is written in Swift
 * uses pre-trained machine learning caffe model "caffe-oxford102" from [Jimmie Goode](https://github.com/jimgoo/caffe-oxford102)
 * uses *.mlmodel converted by Apple's [CoreML Tools](https://github.com/apple/coremltools)
+* uses Wikipedia API to get some essential information about flower and download generic photo
+* uses Swift Codable protocol to parse JSON (instead of SwiftyJSON) & uses classic Swift networking (instead of Alamofire)
+* uses [SDWebImage](https://cocoapods.org/pods/SDWebImage) to download an image from Wikipedia
+
 
 ## Code example
 
@@ -53,6 +58,7 @@ func detect(image: CIImage) {
 ---
 ![FlowerIDMockup](Documentation/flowerIDmockup09.jpg)
 
+
 ## Status
 Project is _in progress_ so there are still some **things to do**:
 * add "save favourites" feature
@@ -63,16 +69,23 @@ Project is _in progress_ so there are still some **things to do**:
 ![FlowerIDMockup](Documentation/flowerIDmockup08.jpg)
 
 
+
 ## Dependencies
 
 I did not include into repository the CocoaPods dependecies, so you can find them here:
 * [SDWebImage](https://cocoapods.org/pods/SDWebImage) by Olivier Poitrey
 
+
+
 ## Inspiration
 Project inspired by Angela's Yu app.
 
+
+
 ## Contact
 Created by [@pacholak](https://twitter.com/pacholak) - feel free to contact me!
+
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
