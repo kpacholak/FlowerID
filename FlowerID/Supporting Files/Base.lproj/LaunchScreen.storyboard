@@ -36,7 +36,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FlowerId_icon2" width="2066" height="3000"/>
+        <image name="FlowerId_icon2" width="826" height="1200"/>
         <namedColor name="lightGreenFlowerID">
             <color red="0.93300002813339233" green="1" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
