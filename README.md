@@ -67,9 +67,8 @@ Project is _in progress_ so there are still some **things to do**:
 
 
 ## Dependencies
-I did not include into repository the CocoaPods dependecies, so you can find them here:
-* [SDWebImage](https://cocoapods.org/pods/SDWebImage) by Olivier Poitrey
-* *mlmodel file is too large to upload it to this repo. You need to create your own from pre-trained machine learning caffe model "caffe-oxford102" from [Jimmie Goode](https://github.com/jimgoo/caffe-oxford102). You'll need Apple's [CoreML Tools](https://github.com/apple/coremltools)
+* I did not include into repository the CocoaPods dependecies, so you can find them here: [SDWebImage](https://cocoapods.org/pods/SDWebImage) by Olivier Poitrey
+* _*mlmodel_ file is too large to upload it to this repo. You need to create your own from pre-trained machine learning caffe model "caffe-oxford102" from [Jimmie Goode](https://github.com/jimgoo/caffe-oxford102). You'll need Apple's [CoreML Tools](https://github.com/apple/coremltools)
 
 
 
