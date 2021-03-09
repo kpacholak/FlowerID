@@ -13,20 +13,17 @@ import SDWebImage
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let imagePicker = UIImagePickerController()
-    
     let flowerManager = FlowerManager()
     var flowerName = "Rose"
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var textView: UITextView!
-    
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         flowerManager.delegate = self
         imagePicker.delegate = self
-        
     }
     
     // func picking image from the camera
@@ -36,9 +33,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             // to use image with detect() function we need to convert it to CIImage
             guard let convertedCiImage = CIImage(image: userPickedImage) else { fatalError("Unable to convert to CIImage") }
-            
-            
-            
+      
             imageView.image = userPickedImage
             spinner.startAnimating()
             detect(image: convertedCiImage)
@@ -47,10 +42,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
-    
-    func detect(image: CIImage) {
+    private func detect(image: CIImage) {
         
-        // VNCoreModel comes from Vision library. We're loading model
+        // VNCoreModel comes from Vision library. Loading model
         let config = MLModelConfiguration()
         guard let coreMLModel = try? FlowerClassifier(configuration: config),
               let model = try? VNCoreMLModel(for: coreMLModel.model) else { fatalError("Loading CoreML Model Failed") }
@@ -58,7 +52,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let request = VNCoreMLRequest(model: model) { (request, error) in
             guard let classification = request.results?.first as? VNClassificationObservation else { fatalError("Unable to classify image") }
 
-            // result from classifictaion goes to navigation title (capitalized)
+            // Result from classifictaion goes to navigation title (capitalized)
             self.navigationItem.title = classification.identifier.capitalized
             let flowerStringName = self.navigationItem.title?.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed)
             self.flowerManager.fetchData(flowerName: flowerStringName ?? "rose")
@@ -80,25 +74,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - CameraButtonPressed with alerts
     
-    @IBAction func cameraButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction private func cameraButtonPressed(_ sender: UIBarButtonItem) {
         
-        let alert = UIAlertController(title: "Choose image to identify", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
-            self.openCamera()
+        let alert = UIAlertController(
+            title: "Choose image to identify",
+            message: nil,
+            preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(
+            title: "Camera",
+            style: .default,
+            handler: { _ in
+                self.openCamera()
         }))
         
-        alert.addAction(UIAlertAction(title: "Photo library", style: .default, handler: { _ in
-            self.openLibrary()
+        alert.addAction(UIAlertAction(
+            title: "Photo library",
+            style: .default,
+            handler: { _ in
+                self.openLibrary()
         }))
         
-        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction.init(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil
+        ))
         
         self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Choose camera or library
     
-    func openCamera() {
+    private func openCamera() {
         
         if (UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
@@ -107,39 +114,59 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         } else {
             
-            let alert  = UIAlertController(title: "Warning", message: "Camera not found", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            let alert  = UIAlertController(
+                title: "Warning",
+                message: "Camera not found",
+                preferredStyle: .alert
+            )
+            
+            alert.addAction(UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: nil
+            ))
+            
             self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func openLibrary() {
+    private func openLibrary() {
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         imagePicker.allowsEditing = true
         self.present(imagePicker, animated: true, completion: nil)
     }
-    
 }
 
 // MARK: - FlowerManager Delegate Methods
 
 extension ViewController: FlowerManagerDelegate {
+    
     func didUpdateFlower(extract: String, imageSrcURL: String) {
-        print("uaktualniam text i obraz")
         DispatchQueue.main.async {
-            
-            
             self.textView.text = extract
             self.imageView.sd_setImage(with: URL(string: imageSrcURL))
             self.spinner.stopAnimating()
         }
-        
     }
     
     func didFailWithError() {
         DispatchQueue.main.async {
-            self.textView.text = "Unfortunately, there is no information about \(self.flowerName) in Wikipedia "
             self.spinner.stopAnimating()
+            self.textView.text = ""
+            
+            let alert = UIAlertController(
+                title: "Warning",
+                message: "Unfortunately, there is no information about \(self.flowerName) in Wikipedia",
+                preferredStyle: .alert
+            )
+            
+            alert.addAction(UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: nil
+            ))
+            
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }
