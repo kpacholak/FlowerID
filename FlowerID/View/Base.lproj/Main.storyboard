@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,28 +23,25 @@
                                     <constraint firstAttribute="width" secondItem="RnI-jk-0oN" secondAttribute="height" multiplier="414:341" id="HhS-0H-hsR"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.94999999999999996" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soE-Se-jkh">
-                                <rect key="frame" x="20" y="489" width="374" height="373"/>
-                                <color key="backgroundColor" name="lightGreenFlowerID"/>
-                                <color key="textColor" name="greenFlowerID"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="L9a-zO-haL">
                                 <rect key="frame" x="188.5" y="292" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WdG-L1-P6x">
+                                <rect key="frame" x="0.0" y="489" width="414" height="407"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="lightGreenFlowerID"/>
                         <constraints>
+                            <constraint firstItem="WdG-L1-P6x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="349" id="3Io-Oi-TWo"/>
                             <constraint firstItem="RnI-jk-0oN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9Mh-zQ-Sw3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="soE-Se-jkh" secondAttribute="trailing" constant="20" id="FsJ-d0-5rk"/>
-                            <constraint firstItem="soE-Se-jkh" firstAttribute="top" secondItem="RnI-jk-0oN" secondAttribute="bottom" constant="8" symbolic="YES" id="MQb-WR-Qey"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WdG-L1-P6x" secondAttribute="trailing" id="Fu7-N0-pgD"/>
+                            <constraint firstItem="WdG-L1-P6x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QjT-LJ-y0v"/>
                             <constraint firstItem="L9a-zO-haL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Rs0-6w-F3t"/>
+                            <constraint firstItem="WdG-L1-P6x" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="Uxv-1N-Mci"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RnI-jk-0oN" secondAttribute="trailing" id="cT3-hx-H9x"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="soE-Se-jkh" secondAttribute="bottom" id="f8C-5Z-fFW"/>
-                            <constraint firstItem="soE-Se-jkh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ieF-fY-oM0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="RnI-jk-0oN" secondAttribute="leading" id="kUu-Gu-dgH"/>
                             <constraint firstItem="L9a-zO-haL" firstAttribute="centerY" secondItem="RnI-jk-0oN" secondAttribute="centerY" id="w8C-QY-OKX"/>
                         </constraints>
@@ -58,7 +56,7 @@
                     <connections>
                         <outlet property="imageView" destination="RnI-jk-0oN" id="DaM-xH-0sB"/>
                         <outlet property="spinner" destination="L9a-zO-haL" id="pBE-NC-yVA"/>
-                        <outlet property="textView" destination="soE-Se-jkh" id="ffo-NI-WCF"/>
+                        <outlet property="tableView" destination="WdG-L1-P6x" id="xEr-Ho-Xrc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -99,5 +97,8 @@
         <namedColor name="lightGreenFlowerID">
             <color red="0.93300002813339233" green="1" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

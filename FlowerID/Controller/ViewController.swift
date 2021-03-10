@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var flowerName = "Rose"
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
@@ -169,4 +169,21 @@ extension ViewController: FlowerManagerDelegate {
             self.present(alert, animated: true, completion: nil)
         }
     }
+}
+
+// MARK: - TableView data source delegate methods
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
+        return cell
+    }
+    
+    
+    
+    
 }
