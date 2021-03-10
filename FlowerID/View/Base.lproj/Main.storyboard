@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,9 +26,9 @@
                                 <rect key="frame" x="188.5" y="292" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WdG-L1-P6x">
-                                <rect key="frame" x="0.0" y="489" width="414" height="407"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="500" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WdG-L1-P6x">
+                                <rect key="frame" x="20" y="489" width="374" height="407"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -37,8 +36,8 @@
                         <constraints>
                             <constraint firstItem="WdG-L1-P6x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="349" id="3Io-Oi-TWo"/>
                             <constraint firstItem="RnI-jk-0oN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9Mh-zQ-Sw3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WdG-L1-P6x" secondAttribute="trailing" id="Fu7-N0-pgD"/>
-                            <constraint firstItem="WdG-L1-P6x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QjT-LJ-y0v"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WdG-L1-P6x" secondAttribute="trailing" constant="20" id="Fu7-N0-pgD"/>
+                            <constraint firstItem="WdG-L1-P6x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QjT-LJ-y0v"/>
                             <constraint firstItem="L9a-zO-haL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Rs0-6w-F3t"/>
                             <constraint firstItem="WdG-L1-P6x" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="Uxv-1N-Mci"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RnI-jk-0oN" secondAttribute="trailing" id="cT3-hx-H9x"/>
@@ -97,8 +96,5 @@
         <namedColor name="lightGreenFlowerID">
             <color red="0.93300002813339233" green="1" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

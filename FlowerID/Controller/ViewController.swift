@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let imagePicker = UIImagePickerController()
     let flowerManager = FlowerManager()
     var flowerName = "Rose"
+    var flowerDescription = ""
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
@@ -22,9 +23,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         flowerManager.delegate = self
         imagePicker.delegate = self
     }
+    
+   
     
     // func picking image from the camera
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -143,16 +148,16 @@ extension ViewController: FlowerManagerDelegate {
     
     func didUpdateFlower(extract: String, imageSrcURL: String) {
         DispatchQueue.main.async {
-            self.textView.text = extract
+            self.flowerDescription = extract
             self.imageView.sd_setImage(with: URL(string: imageSrcURL))
             self.spinner.stopAnimating()
+            self.tableView.reloadData()
         }
     }
     
     func didFailWithError() {
         DispatchQueue.main.async {
             self.spinner.stopAnimating()
-            self.textView.text = ""
             
             let alert = UIAlertController(
                 title: "Warning",
@@ -179,11 +184,12 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! TableViewCell
+        cell.cellLabel.text = flowerDescription
+
         return cell
     }
     
-    
-    
-    
+   
+
 }

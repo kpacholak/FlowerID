@@ -11,6 +11,8 @@
 		A6262F8125F654AD009D1C2A /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = A6262F8025F654AD009D1C2A /* LICENSE.txt */; };
 		A63C59EA25F28E3F006CAA16 /* FlowerIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63C59E925F28E3F006CAA16 /* FlowerIDModel.swift */; };
 		A63C59F425F28EAB006CAA16 /* FlowerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63C59F325F28EAB006CAA16 /* FlowerManager.swift */; };
+		A63F90B725F8F8580025E51D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F90B525F8F8580025E51D /* TableViewCell.swift */; };
+		A63F90B825F8F8580025E51D /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63F90B625F8F8580025E51D /* TableViewCell.xib */; };
 		A64CB60C25F389B1007732E5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A619E27B25F3866700AF6E40 /* README.md */; };
 		A6F03E0A25F1021E00633D97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F03E0925F1021E00633D97 /* AppDelegate.swift */; };
 		A6F03E0C25F1021E00633D97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F03E0B25F1021E00633D97 /* SceneDelegate.swift */; };
@@ -26,6 +28,8 @@
 		A6262F8025F654AD009D1C2A /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		A63C59E925F28E3F006CAA16 /* FlowerIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerIDModel.swift; sourceTree = "<group>"; };
 		A63C59F325F28EAB006CAA16 /* FlowerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerManager.swift; sourceTree = "<group>"; };
+		A63F90B525F8F8580025E51D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		A63F90B625F8F8580025E51D /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		A6F03E0625F1021E00633D97 /* FlowerID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowerID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F03E0925F1021E00633D97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6F03E0B25F1021E00633D97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				A6F03E0F25F1021E00633D97 /* Main.storyboard */,
+				A63F90B525F8F8580025E51D /* TableViewCell.swift */,
+				A63F90B625F8F8580025E51D /* TableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6F03E1625F1021E00633D97 /* LaunchScreen.storyboard in Resources */,
+				A63F90B825F8F8580025E51D /* TableViewCell.xib in Resources */,
 				A6F03E1325F1021E00633D97 /* Assets.xcassets in Resources */,
 				A64CB60C25F389B1007732E5 /* README.md in Resources */,
 				A6262F8125F654AD009D1C2A /* LICENSE.txt in Resources */,
@@ -259,6 +266,7 @@
 				A6F03E0E25F1021E00633D97 /* ViewController.swift in Sources */,
 				A6F03E0A25F1021E00633D97 /* AppDelegate.swift in Sources */,
 				A63C59F425F28EAB006CAA16 /* FlowerManager.swift in Sources */,
+				A63F90B725F8F8580025E51D /* TableViewCell.swift in Sources */,
 				A6F03E0C25F1021E00633D97 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
