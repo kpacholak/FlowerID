@@ -43,7 +43,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             // to use image with detect() function we need to convert it to CIImage
             guard let convertedCiImage = CIImage(image: userPickedImage) else { fatalError("Unable to convert to CIImage") }
       
-            
             spinner.startAnimating()
             detect(image: convertedCiImage)
         }
