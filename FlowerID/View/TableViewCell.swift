@@ -10,6 +10,8 @@ import UIKit
 class TableViewCell: UITableViewCell {
 
 
+    @IBOutlet weak var flowerImage: UIImageView!
+
     @IBOutlet weak var cellLabel: UILabel!
     
 }

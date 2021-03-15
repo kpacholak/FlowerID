@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let flowerManager = FlowerManager()
     var flowerName = ""
     var flowerDescription = ""
+    var flowerURL = ""
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
@@ -26,7 +27,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
-
         
         flowerManager.delegate = self
         imagePicker.delegate = self
@@ -152,7 +152,8 @@ extension ViewController: FlowerManagerDelegate {
     func didUpdateFlower(extract: String, imageSrcURL: String) {
         DispatchQueue.main.async {
             self.flowerDescription = extract
-            self.imageView.sd_setImage(with: URL(string: imageSrcURL))
+            self.flowerURL = imageSrcURL
+            
             self.spinner.stopAnimating()
             self.tableView.reloadData()
         }
@@ -188,7 +189,10 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! TableViewCell
+        
+
         cell.cellLabel.text = flowerDescription
+        cell.flowerImage.sd_setImage(with: URL(string: flowerURL))
 
         return cell
     }

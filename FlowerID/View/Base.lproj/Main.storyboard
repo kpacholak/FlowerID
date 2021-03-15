@@ -16,47 +16,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RnI-jk-0oN">
-                                <rect key="frame" x="0.0" y="140" width="414" height="341"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="RnI-jk-0oN" secondAttribute="height" multiplier="414:341" id="HhS-0H-hsR"/>
-                                </constraints>
-                            </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="L9a-zO-haL">
                                 <rect key="frame" x="188.5" y="292" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="500" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WdG-L1-P6x">
-                                <rect key="frame" x="20" y="489" width="374" height="407"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="600" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WdG-L1-P6x">
+                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReusableCell" id="HaR-uV-lwe" customClass="TableViewCell" customModule="FlowerID" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="500"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="600"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HaR-uV-lwe" id="rag-4k-LQJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="500"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flower Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4I-9p-4tr">
-                                                    <rect key="frame" x="28" y="19" width="318" height="462"/>
+                                                    <rect key="frame" x="28" y="336" width="358" height="245"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="greenFlowerID"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RnI-jk-0oN">
+                                                    <rect key="frame" x="-20" y="0.0" width="454" height="328"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="RnI-jk-0oN" secondAttribute="height" multiplier="414:341" constant="55.847507331378267" id="HhS-0H-hsR"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="w4I-9p-4tr" firstAttribute="leading" secondItem="rag-4k-LQJ" secondAttribute="leadingMargin" constant="8" id="3X3-zG-5fY"/>
-                                                <constraint firstItem="w4I-9p-4tr" firstAttribute="top" secondItem="rag-4k-LQJ" secondAttribute="topMargin" constant="8" id="HnB-mI-iJS"/>
+                                                <constraint firstItem="w4I-9p-4tr" firstAttribute="top" secondItem="RnI-jk-0oN" secondAttribute="bottom" constant="8" id="Bab-5f-90d"/>
+                                                <constraint firstItem="RnI-jk-0oN" firstAttribute="leading" secondItem="rag-4k-LQJ" secondAttribute="leading" constant="-20" id="Ewv-e1-nSt"/>
+                                                <constraint firstAttribute="trailing" secondItem="RnI-jk-0oN" secondAttribute="trailing" constant="-20" id="PnV-iQ-VKS"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="w4I-9p-4tr" secondAttribute="trailing" constant="8" id="Vpg-RW-wCO"/>
+                                                <constraint firstItem="RnI-jk-0oN" firstAttribute="top" secondItem="rag-4k-LQJ" secondAttribute="top" id="YQV-2l-6me"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="w4I-9p-4tr" secondAttribute="bottom" constant="8" id="yb5-fS-b41"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="cellLabel" destination="w4I-9p-4tr" id="NGO-7Y-Gtd"/>
+                                            <outlet property="cellLabel" destination="w4I-9p-4tr" id="xZO-wB-ZgU"/>
+                                            <outlet property="flowerImage" destination="RnI-jk-0oN" id="aoD-F7-Dtb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -65,15 +69,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="lightGreenFlowerID"/>
                         <constraints>
-                            <constraint firstItem="WdG-L1-P6x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="349" id="3Io-Oi-TWo"/>
-                            <constraint firstItem="RnI-jk-0oN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9Mh-zQ-Sw3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WdG-L1-P6x" secondAttribute="trailing" constant="20" id="Fu7-N0-pgD"/>
-                            <constraint firstItem="WdG-L1-P6x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QjT-LJ-y0v"/>
+                            <constraint firstItem="WdG-L1-P6x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3Io-Oi-TWo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WdG-L1-P6x" secondAttribute="trailing" id="Fu7-N0-pgD"/>
+                            <constraint firstItem="WdG-L1-P6x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QjT-LJ-y0v"/>
                             <constraint firstItem="L9a-zO-haL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Rs0-6w-F3t"/>
                             <constraint firstItem="WdG-L1-P6x" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="Uxv-1N-Mci"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RnI-jk-0oN" secondAttribute="trailing" id="cT3-hx-H9x"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="RnI-jk-0oN" secondAttribute="leading" id="kUu-Gu-dgH"/>
-                            <constraint firstItem="L9a-zO-haL" firstAttribute="centerY" secondItem="RnI-jk-0oN" secondAttribute="centerY" id="w8C-QY-OKX"/>
+                            <constraint firstItem="L9a-zO-haL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="152" id="Zez-dc-yCm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FlowerID" id="RSB-0f-8kE">
@@ -84,7 +85,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageView" destination="RnI-jk-0oN" id="DaM-xH-0sB"/>
                         <outlet property="spinner" destination="L9a-zO-haL" id="pBE-NC-yVA"/>
                         <outlet property="tableView" destination="WdG-L1-P6x" id="xEr-Ho-Xrc"/>
                     </connections>
