@@ -14,7 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let imagePicker = UIImagePickerController()
     let flowerManager = FlowerManager()
-    var flowerName = "Rose"
+    var flowerName = ""
     var flowerDescription = ""
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -24,7 +24,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
+
+        
         flowerManager.delegate = self
         imagePicker.delegate = self
     }
