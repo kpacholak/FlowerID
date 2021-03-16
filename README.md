@@ -52,16 +52,14 @@ private func detect(image: CIImage) {
 }
 ```
 
----
+
 ![FlowerIDMockup](Documentation/flowerIDmockup09.jpg)
 
+![FlowerIDMockup](Documentation/flowerIDmockup08.jpg)
 
 ## Status / things to do
 Project is _in progress_ so there are still some **things to do**:
 * add "save favourites" feature
-
----
-![FlowerIDMockup](Documentation/flowerIDmockup08.jpg)
 
 
 
@@ -83,3 +81,7 @@ Created by [@pacholak](https://twitter.com/pacholak) - feel free to contact me!
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
+
+
+![FlowerIDMockup](Documentation/flowerIDmockup10.jpg)
