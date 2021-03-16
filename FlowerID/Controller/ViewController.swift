@@ -38,7 +38,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBAction func shareButtonPressed(_ sender: Any) {
-        let items = ["https://en.wikipedia.org/wiki/\(flowerName)"]
+        let items = ["https://en.wikipedia.org/wiki/\(flowerName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed) ?? "rose")"]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
     }
@@ -72,6 +72,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             // Result from classifictaion goes to navigation title (capitalized)
             self.navigationItem.title = classification.identifier.capitalized
             let flowerStringName = self.navigationItem.title?.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed)
+
             self.flowerManager.fetchData(flowerName: flowerStringName ?? "rose")
             
             if let flowerSafeName = self.navigationItem.title {
