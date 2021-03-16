@@ -12,11 +12,12 @@
 
 ## Technologies
 * project is written in Swift
-* uses pre-trained machine learning caffe model "caffe-oxford102" from [Jimmie Goode](https://github.com/jimgoo/caffe-oxford102)
-* uses *.mlmodel converted by Apple's [CoreML Tools](https://github.com/apple/coremltools)
-* uses Wikipedia API to get some essential information about flower and download generic photo
-* uses Swift Codable protocol to parse JSON (instead of SwiftyJSON) & uses classic Swift networking (instead of Alamofire)
-* uses [SDWebImage](https://cocoapods.org/pods/SDWebImage) to download an image from Wikipedia
+* pre-trained machine learning caffe model "caffe-oxford102" from [Jimmie Goode](https://github.com/jimgoo/caffe-oxford102)
+* *.mlmodel converted by Apple's [CoreML Tools](https://github.com/apple/coremltools)
+* Wikipedia API to get some essential information about flower and download generic photo
+* Swift Codable protocol to parse JSON (instead of SwiftyJSON) & uses classic Swift networking (instead of Alamofire)
+* [SDWebImage](https://cocoapods.org/pods/SDWebImage) to download an image from Wikipedia
+* Table View with self-sizing (auto-layout) custom cells 
 
 
 ## Code example
@@ -59,7 +60,6 @@ private func detect(image: CIImage) {
 Project is _in progress_ so there are still some **things to do**:
 * add "save favourites" feature
 * add "share" feature
-* implement tableView
 
 ---
 ![FlowerIDMockup](Documentation/flowerIDmockup08.jpg)
