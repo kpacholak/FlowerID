@@ -12,15 +12,14 @@ import SDWebImage
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    let imagePicker = UIImagePickerController()
-    let flowerManager = FlowerManager()
-    var flowerName = ""
-    var flowerDescription = ""
-    var flowerURL = ""
+    private let imagePicker = UIImagePickerController()
+    private let flowerManager = FlowerManager()
+    private var flowerName = ""
+    private var flowerDescription = ""
+    private var flowerURL = ""
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +32,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
     }
     
-   
     
     // func picking image from the camera
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -151,7 +149,7 @@ extension ViewController: FlowerManagerDelegate {
     
     func didUpdateFlower(extract: String, imageSrcURL: String) {
         DispatchQueue.main.async {
-            self.flowerDescription = extract
+            self.flowerDescription = "🌸 Wikipedia essence:\n\n" + extract
             self.flowerURL = imageSrcURL
             
             self.spinner.stopAnimating()
@@ -192,10 +190,7 @@ extension ViewController: UITableViewDataSource {
         
         cell.cellLabel.text = flowerDescription
         cell.flowerImage.sd_setImage(with: URL(string: flowerURL))
-
+        
         return cell
     }
-    
-   
-
 }

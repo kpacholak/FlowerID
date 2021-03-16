@@ -33,14 +33,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flower Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4I-9p-4tr">
-                                                    <rect key="frame" x="28" y="302" width="358" height="279"/>
+                                                    <rect key="frame" x="28" y="334" width="358" height="247"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="greenFlowerID"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RnI-jk-0oN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="294"/>
+                                                    <rect key="frame" x="0.0" y="10" width="414" height="294"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="RnI-jk-0oN" secondAttribute="height" multiplier="414:341" constant="56.847507331378267" id="HhS-0H-hsR"/>
                                                     </constraints>
@@ -49,11 +49,11 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="w4I-9p-4tr" firstAttribute="leading" secondItem="rag-4k-LQJ" secondAttribute="leadingMargin" constant="8" id="3X3-zG-5fY"/>
-                                                <constraint firstItem="w4I-9p-4tr" firstAttribute="top" secondItem="RnI-jk-0oN" secondAttribute="bottom" constant="8" id="Bab-5f-90d"/>
+                                                <constraint firstItem="w4I-9p-4tr" firstAttribute="top" secondItem="RnI-jk-0oN" secondAttribute="bottom" constant="30" id="Bab-5f-90d"/>
                                                 <constraint firstItem="RnI-jk-0oN" firstAttribute="leading" secondItem="rag-4k-LQJ" secondAttribute="leading" id="Ewv-e1-nSt"/>
                                                 <constraint firstAttribute="trailing" secondItem="RnI-jk-0oN" secondAttribute="trailing" id="PnV-iQ-VKS"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="w4I-9p-4tr" secondAttribute="trailing" constant="8" id="Vpg-RW-wCO"/>
-                                                <constraint firstItem="RnI-jk-0oN" firstAttribute="top" secondItem="rag-4k-LQJ" secondAttribute="top" id="YQV-2l-6me"/>
+                                                <constraint firstItem="RnI-jk-0oN" firstAttribute="top" secondItem="rag-4k-LQJ" secondAttribute="top" constant="10" id="YQV-2l-6me"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="w4I-9p-4tr" secondAttribute="bottom" constant="8" id="yb5-fS-b41"/>
                                             </constraints>
                                         </tableViewCellContentView>
