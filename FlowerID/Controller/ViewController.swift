@@ -20,16 +20,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        shareButton.isHidden = true
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
         
         flowerManager.delegate = self
         imagePicker.delegate = self
+    }
+    
+    
+    
+    @IBAction func shareButtonPressed(_ sender: Any) {
+        let items = ["https://en.wikipedia.org/wiki/\(flowerName)"]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
     }
     
     
@@ -151,7 +162,7 @@ extension ViewController: FlowerManagerDelegate {
         DispatchQueue.main.async {
             self.flowerDescription = "🌸 Wikipedia essence:\n\n" + extract
             self.flowerURL = imageSrcURL
-            
+            self.shareButton.isHidden = false
             self.spinner.stopAnimating()
             self.tableView.reloadData()
         }
@@ -192,5 +203,26 @@ extension ViewController: UITableViewDataSource {
         cell.flowerImage.sd_setImage(with: URL(string: flowerURL))
         
         return cell
+    }
+}
+
+// MARK: - Bar Button isHidden extension
+
+public extension UIBarButtonItem {
+    
+    var isHidden: Bool {
+        get {
+            return tintColor == UIColor.clear
+        }
+        set(hide) {
+            if hide {
+                isEnabled = false
+                tintColor = UIColor.clear
+            } else {
+                isEnabled = true
+                tintColor = nil
+                // This sets the tinColor back to the default. If you have a custom color, use that instead
+            }
+        }
     }
 }

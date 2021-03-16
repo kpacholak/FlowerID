@@ -20,20 +20,20 @@
                                 <rect key="frame" x="188.5" y="292" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="600" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WdG-L1-P6x">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="700" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WdG-L1-P6x">
                                 <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReusableCell" id="HaR-uV-lwe" customClass="TableViewCell" customModule="FlowerID" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="600"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="700"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HaR-uV-lwe" id="rag-4k-LQJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flower Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4I-9p-4tr">
-                                                    <rect key="frame" x="28" y="334" width="358" height="247"/>
+                                                    <rect key="frame" x="28" y="334" width="358" height="347"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="greenFlowerID"/>
@@ -78,13 +78,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FlowerID" id="RSB-0f-8kE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="j9W-at-2Y1">
-                            <connections>
-                                <action selector="cameraButtonPressed:" destination="BYZ-38-t0r" id="o3x-Mr-Vbb"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="j9W-at-2Y1">
+                                <connections>
+                                    <action selector="cameraButtonPressed:" destination="BYZ-38-t0r" id="o3x-Mr-Vbb"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="bky-4q-W9B">
+                                <connections>
+                                    <action selector="shareButtonPressed:" destination="BYZ-38-t0r" id="9D8-53-gjj"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="shareButton" destination="bky-4q-W9B" id="Yj4-hw-UmE"/>
                         <outlet property="spinner" destination="L9a-zO-haL" id="pBE-NC-yVA"/>
                         <outlet property="tableView" destination="WdG-L1-P6x" id="xEr-Ho-Xrc"/>
                     </connections>
