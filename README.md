@@ -59,7 +59,6 @@ private func detect(image: CIImage) {
 ## Status / things to do
 Project is _in progress_ so there are still some **things to do**:
 * add "save favourites" feature
-* add "share" feature
 
 ---
 ![FlowerIDMockup](Documentation/flowerIDmockup08.jpg)
