@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     private let imagePicker = UIImagePickerController()
     private let flowerManager = FlowerManager()
     private var flowerName = ""
+    private var flowerStringName = ""
     private var flowerDescription = ""
     private var flowerURL = ""
     
@@ -38,7 +39,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBAction func shareButtonPressed(_ sender: Any) {
-        let items = ["https://en.wikipedia.org/wiki/\(flowerName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed) ?? "rose")"]
+        let items = ["https://en.wikipedia.org/wiki/\(flowerStringName)"]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
     }
@@ -66,14 +67,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         guard let coreMLModel = try? FlowerClassifier(configuration: config),
               let model = try? VNCoreMLModel(for: coreMLModel.model) else { fatalError("Loading CoreML Model Failed") }
         
-        let request = VNCoreMLRequest(model: model) { (request, error) in
+        let request = VNCoreMLRequest(model: model) { [self] (request, error) in
             guard let classification = request.results?.first as? VNClassificationObservation else { fatalError("Unable to classify image") }
 
             // Result from classifictaion goes to navigation title (capitalized)
             self.navigationItem.title = classification.identifier.capitalized
-            let flowerStringName = self.navigationItem.title?.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed)
+            flowerStringName = self.navigationItem.title?.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed) ?? "rose"
 
-            self.flowerManager.fetchData(flowerName: flowerStringName ?? "rose")
+            self.flowerManager.fetchData(flowerName: self.flowerStringName)
             
             if let flowerSafeName = self.navigationItem.title {
                 self.flowerName = flowerSafeName
